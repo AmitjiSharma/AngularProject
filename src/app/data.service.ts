@@ -1,10 +1,12 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class DataService {
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
-  getEmployees(): any {
-    return [{ name: 'Amit' }, { name: 'Shivam' }, { name: 'Rahul' }];
+  product(): Observable<any> {
+    return this.http.get('https://jsonplaceholder.typicode.com/users');
   }
 }
