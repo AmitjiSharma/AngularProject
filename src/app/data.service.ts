@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/dist/types';
+import { Observable } from 'rxjs';
 
 import { IEmployee } from './employee';
 
@@ -10,7 +10,7 @@ export class DataService {
 
   public _url = '/test/api.json';
 
-  getEmployees(): Observable<any> {
-    return this.http.get<IEmployee>(this._url);
+  getEmployees(): Observable<IEmployee[]> {
+    return this.http.get<IEmployee[]>(this._url);
   }
 }
